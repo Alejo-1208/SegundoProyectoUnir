@@ -4446,6 +4446,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 2
   jumpForce: 5
+  doubleJumpSpeed: 2.5
+  canDoubleJump: 0
   betterJump: 1
   fallMultiplier: 0.5
   lowJumpMultiplayer: 1

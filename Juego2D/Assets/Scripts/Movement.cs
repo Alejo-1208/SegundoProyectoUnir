@@ -7,6 +7,8 @@ public class Movement : MonoBehaviour
 
     [SerializeField] public float speed = 0f; // velocidad del objeto
     [SerializeField] public float jumpForce = 0f; // fuerza de salto
+    [SerializeField] public float doubleJumpSpeed = 0f; //doble salto
+                     public bool canDoubleJump;
     [SerializeField] public bool betterJump = false;
     [SerializeField] public float fallMultiplier = 0.5f;
     [SerializeField] public float lowJumpMultiplayer = 1f;
@@ -22,7 +24,55 @@ public class Movement : MonoBehaviour
         rb = GetComponent<Rigidbody2D>(); //busca el componente 
     }
 
-    void Update()
+    private void Update()
+    {
+        if (Input.GetKeyDown("space") && CheckGround.isGrounded)
+        {
+                canDoubleJump = true; // permite el doble salto
+                rb.velocity = new Vector2(rb.velocity.x, jumpForce);
+            }
+            else if (Input.GetKeyDown("space"))
+                {
+                    if (canDoubleJump)
+                    {
+                        animator.SetBool("DoubleJump", true);// llama la animación para permitir saltar
+                        rb.velocity = new Vector2(rb.velocity.x, doubleJumpSpeed);
+                        canDoubleJump = false; // no permite el doble salto
+                    }
+                }
+            
+                
+            
+            
+        
+        
+        if (CheckGround.isGrounded == false) // cuando no este mos en el suelo, saltamos
+        {
+
+            animator.SetBool("Jump", true);
+            animator.SetBool("Run", false);
+        }
+        if (CheckGround.isGrounded == true) // cuando no este mos en el suelo, saltamos
+        {
+            animator.SetBool("Jump", false);
+            animator.SetBool("DoubleJump", false);
+            animator.SetBool("Falling", false);
+        }
+
+        if (rb.velocity.y < 0)
+        {
+            animator.SetBool("Falling", true);
+        }
+        else
+        {
+            if (rb.velocity.y > 0)
+            {
+            animator.SetBool("Falling", false);
+            }
+        } 
+    }
+
+    void FixedUpdate()
     {
 
         // movimiento horizontal
@@ -64,7 +114,7 @@ public class Movement : MonoBehaviour
             animator.SetBool("Jump", false);
         }
 
-
+        
         if (betterJump)
         {
             if (rb.velocity.y < 0)
