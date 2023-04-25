@@ -8,7 +8,7 @@ public class Movement : MonoBehaviour
     [SerializeField] public float speed = 0f; // velocidad del objeto
     [SerializeField] public float jumpForce = 0f; // fuerza de salto
     [SerializeField] public float doubleJumpSpeed = 0f; //doble salto
-                     public bool canDoubleJump;
+                     private bool canDoubleJump = false;
     [SerializeField] public bool betterJump = false;
     [SerializeField] public float fallMultiplier = 0.5f;
     [SerializeField] public float lowJumpMultiplayer = 1f;
@@ -26,6 +26,8 @@ public class Movement : MonoBehaviour
 
     private void Update()
     {
+
+        /*
         if (Input.GetKeyDown("space") && CheckGround.isGrounded)
         {
                 canDoubleJump = true; // permite el doble salto
@@ -36,16 +38,34 @@ public class Movement : MonoBehaviour
                     if (canDoubleJump)
                     {
                         animator.SetBool("DoubleJump", true);// llama la animación para permitir saltar
+                        rb.velocity = Vector2.zero; 
                         rb.velocity = new Vector2(rb.velocity.x, doubleJumpSpeed);
                         canDoubleJump = false; // no permite el doble salto
                     }
-                }
-            
-                
-            
-            
+                } */
+
+        if (Input.GetButtonDown("Jump") && CheckGround.isGrounded)
+        {
+
+            rb.AddForce(new Vector2(0, jumpForce));
+            animator.SetBool("Jump", true);
+        }
+        else if (Input.GetButtonDown("Jump") && canDoubleJump)
+        {
+            rb.velocity = Vector2.zero;
+            rb.AddForce(new Vector2(0, jumpForce));
+            //animator.SetTrigger("jump");
+            canDoubleJump = false;
+        }
         
-        
+
+        if (CheckGround.isGrounded)
+        {
+            canDoubleJump = true;
+        }
+
+
+
         if (CheckGround.isGrounded == false) // cuando no este mos en el suelo, saltamos
         {
 
@@ -96,13 +116,14 @@ public class Movement : MonoBehaviour
             animator.SetBool("Run", false);
         }
 
-        //salto
+        //salto ya no necesario
 
-        if (Input.GetKey("space") && CheckGround.isGrounded)
+        /*if (Input.GetKey("space") && CheckGround.isGrounded)
         {
             rb.velocity = new Vector2(rb.velocity.x, jumpForce);
-        }
-            //Debug.Log(CheckGround.isGrounded);
+        }*/
+        
+        // revisando tierra
         if (CheckGround.isGrounded == false) // cuando no este mos en el suelo, saltamos
         {
             
@@ -142,6 +163,8 @@ public class Movement : MonoBehaviour
             rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
             isGrounded = false;
         }*/
+
+        
     }
 
     void OnCollisionEnter2D(Collision2D col)

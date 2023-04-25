@@ -4016,9 +4016,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 2
-  jumpForce: 5
-  doubleJumpSpeed: 4.5
-  canDoubleJump: 0
+  jumpForce: 180
+  doubleJumpSpeed: 5
   betterJump: 1
   fallMultiplier: 0.5
   lowJumpMultiplayer: 1
@@ -4646,7 +4645,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2296607582774962524, guid: 9bd18342720424d46bbfa56b814dd990, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9bd18342720424d46bbfa56b814dd990, type: 3}
