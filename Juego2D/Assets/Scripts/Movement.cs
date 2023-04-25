@@ -27,7 +27,7 @@ public class Movement : MonoBehaviour
     private void Update()
     {
 
-        /*
+        /* es una forma de hacerlo pero no recomendado
         if (Input.GetKeyDown("space") && CheckGround.isGrounded)
         {
                 canDoubleJump = true; // permite el doble salto
@@ -148,32 +148,8 @@ public class Movement : MonoBehaviour
             }
         }
 
-        //salto
-
-
-        /*
-        // movimiento horizontal que no me funciono muy bien
-        float moveHorizontal = Input.GetAxis("Horizontal");
-        Vector2 movement = new Vector2(moveHorizontal, 0f);
-        rb.AddForce(movement * speed);*/
-
-        /*
-        if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
-        {
-            rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
-            isGrounded = false;
-        }*/
-
         
     }
 
-    void OnCollisionEnter2D(Collision2D col)
-    {
-        /*
-        // verifica si el objeto ha tocado el suelo
-        if (col.gameObject.CompareTag("Ground"))
-        {
-            isGrounded = true;
-        }*/
-    }
+    
 }
