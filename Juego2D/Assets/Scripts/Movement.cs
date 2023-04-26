@@ -9,7 +9,7 @@ public class Movement : MonoBehaviour
     [SerializeField] public float jumpForce = 0f; // fuerza de salto
     [SerializeField] public float doubleJumpSpeed = 0f; //doble salto
                      private bool canDoubleJump = false;
-    [SerializeField] public bool betterJump = false;
+    [SerializeField] public bool  betterJump = false;
     [SerializeField] public float fallMultiplier = 0.5f;
     [SerializeField] public float lowJumpMultiplayer = 1f;
 
