@@ -5,15 +5,16 @@ using UnityEngine;
 public class Movement : MonoBehaviour
 {
 
-    [SerializeField] public float speed = 0f; // velocidad del objeto
-    [SerializeField] public float jumpForce = 0f; // fuerza de salto
-    [SerializeField] public float doubleJumpSpeed = 0f; //doble salto
-                     private bool canDoubleJump = false;
-    [SerializeField] public bool  betterJump = false;
-    [SerializeField] public float fallMultiplier = 0.5f;
-    [SerializeField] public float lowJumpMultiplayer = 1f;
+     public float speed = 0f; // velocidad del objeto
+     public float jumpForce = 0f; // fuerza de salto
+     public float doubleJumpSpeed = 0f; //doble salto
+     private bool canDoubleJump = false;
+     public bool  betterJump = false;
+     public float fallMultiplier = 0.5f;
+     public float lowJumpMultiplayer = 1f;
 
-    [SerializeField] public SpriteRenderer spriteRenderer; // al ser publica puedo elegir la opcion que deseo en editor
+    //lo dejo [SerializeField] para pasarle los datos por el editor de unity 
+    [SerializeField] public SpriteRenderer spriteRenderer; 
     [SerializeField] public Animator animator;
 
     private Rigidbody2D rb;// referencia del Rb del personaje
@@ -27,7 +28,8 @@ public class Movement : MonoBehaviour
     private void Update()
     {
 
-        /* es una forma de hacerlo pero no recomendado
+        /* es una forma de hacerlo pero no recomendado, sin embargo la dejo por si es
+           util en algun momento
         if (Input.GetKeyDown("space") && CheckGround.isGrounded)
         {
                 canDoubleJump = true; // permite el doble salto
@@ -66,13 +68,13 @@ public class Movement : MonoBehaviour
 
 
 
-        if (CheckGround.isGrounded == false) // cuando no este mos en el suelo, saltamos
+        if (CheckGround.isGrounded == false) // false para poner los estados de forma que salte
         {
 
             animator.SetBool("Jump", true);
             animator.SetBool("Run", false);
         }
-        if (CheckGround.isGrounded == true) // cuando no este mos en el suelo, saltamos
+        if (CheckGround.isGrounded == true) // true para que no haga doble salto
         {
             animator.SetBool("Jump", false);
             animator.SetBool("DoubleJump", false);
@@ -115,15 +117,8 @@ public class Movement : MonoBehaviour
             rb.velocity = new Vector2(0, rb.velocity.y);
             animator.SetBool("Run", false);
         }
-
-        //salto ya no necesario
-
-        /*if (Input.GetKey("space") && CheckGround.isGrounded)
-        {
-            rb.velocity = new Vector2(rb.velocity.x, jumpForce);
-        }*/
         
-        // revisando tierra
+        // revisando contacto con la tierra
         if (CheckGround.isGrounded == false) // cuando no este mos en el suelo, saltamos
         {
             
