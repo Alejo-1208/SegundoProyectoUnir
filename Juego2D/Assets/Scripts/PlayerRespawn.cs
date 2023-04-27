@@ -6,7 +6,8 @@ using UnityEngine.SceneManagement;
 public class PlayerRespawn : MonoBehaviour
 {
 
-    private float checkPointPositionX, checkPointPositionY;
+    private float checkPointPositionX;
+    private float checkPointPositionY;
     public Animator animator;
 
     private void Start()
@@ -25,7 +26,7 @@ public class PlayerRespawn : MonoBehaviour
 
     public void PlayerDamaged()
     {
-        animator.Play("Hit");
+        animator.Play("Hit"); //llama al estado Hit en la rama de animación
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);//recargue la escena
     }
 }

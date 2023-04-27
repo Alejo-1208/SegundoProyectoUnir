@@ -44,7 +44,7 @@ public class Enemy : MonoBehaviour
         {
             animator.SetTrigger("Hit");
         }
-
+        // if que controla el daño que los enemigos (rabbit y pig) conecta con la clase PlayerRespawn
         if (collision.transform.CompareTag("Player") && normal != Vector2.down)
         {
             Debug.Log("Player damage enemy, respawn activate");
