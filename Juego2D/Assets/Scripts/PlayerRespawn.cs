@@ -37,8 +37,7 @@ public class PlayerRespawn : MonoBehaviour
     private void CheckLife()
     {
         if (life < 1)
-        {
-        
+        {        
 			Destroy(Corazones[0].gameObject);
 			animator.Play("Hit");//llama al estado Hit en la rama de animación
 			animator.Play("Idle");
