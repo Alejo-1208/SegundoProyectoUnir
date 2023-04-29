@@ -33,15 +33,17 @@ public class PlayerRespawn : MonoBehaviour
     {
         life--;
         CheckLife();
-    } 
+    }
+
     private void CheckLife()
     {
         if (life < 1)
         {
-        
-			Destroy(Corazones[0].gameObject);
-			animator.Play("Hit");//llama al estado Hit en la rama de animación
-			animator.Play("Idle");
+            
+            Destroy(Corazones[0].gameObject);
+            
+            animator.Play("Hit");//llama al estado Hit en la rama de animación
+			
 			SceneManager.LoadScene(SceneManager.GetActiveScene().name);//recargue la escena
             
 		}
@@ -49,13 +51,18 @@ public class PlayerRespawn : MonoBehaviour
         {
 			animator.Play("Hit");//llama al estado Hit en la rama de animación
 			Destroy(Corazones[1].gameObject);
-			animator.Play("Idle");
+			
 		}
         else if (life < 3)
         {
 			animator.Play("Hit");//llama al estado Hit en la rama de animación
 			Destroy(Corazones[2].gameObject);
-			animator.Play("Idle");
+			
 		}
+    }
+
+    public void Idle()
+    {
+        animator.Play("Idle");
     }
 }
