@@ -44,7 +44,7 @@ public class PlayerRespawn : MonoBehaviour
             
             animator.Play("Hit");//llama al estado Hit en la rama de animación
 			
-			SceneManager.LoadScene(SceneManager.GetActiveScene().name);//recargue la escena
+			SceneManager.LoadScene("GameOver");
             
 		}
         else if (life < 2)
