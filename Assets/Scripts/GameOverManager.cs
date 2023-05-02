@@ -11,6 +11,6 @@ public class GameOverManager : MonoBehaviour
 
     private void LoadMainMenu() 
     {
-        SceneManager.LoadScene("Menu");
+        SceneManager.LoadScene("Credits");
     }
 }
