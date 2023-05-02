@@ -555,7 +555,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Alejandro Cortes Curz
+  m_Text: Alejandro Cortes Cruz
 --- !u!222 &649189848
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -840,7 +840,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9bc87566b0363a747af21cb6b3043bd9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isSoundActive: 1
 --- !u!1 &1901628611
 GameObject:
   m_ObjectHideFlags: 0
