@@ -26,6 +26,7 @@ public class PauseMenu : MonoBehaviour
 
     public void exitGame()
     {
+        Time.timeScale = 1; // se devuelve el tiempo a 1 patra que no quede en tiempo muerto
         SceneManager.LoadScene("Menu");
         //Application.Quit();
     }
