@@ -18,7 +18,7 @@ public class Movement : MonoBehaviour
     [SerializeField] public Animator animator;
 
     private Rigidbody2D rb;// referencia del Rb del personaje
-    //private bool isGrounded = true; // verifica si el objeto está en el suelo
+    //private bool isGrounded = true; // verifica si el objeto estï¿½ en el suelo
 
     void Start()
     {
@@ -39,7 +39,7 @@ public class Movement : MonoBehaviour
                 {
                     if (canDoubleJump)
                     {
-                        animator.SetBool("DoubleJump", true);// llama la animación para permitir saltar
+                        animator.SetBool("DoubleJump", true);// llama la animaciï¿½n para permitir saltar
                         rb.velocity = Vector2.zero; 
                         rb.velocity = new Vector2(rb.velocity.x, doubleJumpSpeed);
                         canDoubleJump = false; // no permite el doble salto
