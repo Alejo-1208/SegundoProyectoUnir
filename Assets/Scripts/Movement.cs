@@ -105,7 +105,6 @@ public class Movement : MonoBehaviour
 
     void FixedUpdate()
     {
-        wallSlide();
 
         // movimiento horizontal
 
